@@ -17,20 +17,7 @@ import com.google.firebase.auth.FirebaseAuthMultiFactorException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     private lateinit var auth: FirebaseAuth
 
@@ -40,10 +27,6 @@ class LoginFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
 
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -176,31 +159,6 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        if (user != null) {
-            binding.status.text = getString(
-                R.string.emailpassword_status_fmt,
-                user.email,
-                user.isEmailVerified,
-            )
-            binding.detail.text = getString(R.string.firebase_status_fmt, user.uid)
-
-            binding.emailPasswordButtons.visibility = View.GONE
-            binding.emailPasswordFields.visibility = View.GONE
-            binding.signedInButtons.visibility = View.VISIBLE
-
-            if (user.isEmailVerified) {
-                binding.verifyEmailButton.visibility = View.GONE
-            } else {
-                binding.verifyEmailButton.visibility = View.VISIBLE
-            }
-        } else {
-            binding.status.setText(R.string.signed_out)
-            binding.detail.text = null
-
-            binding.emailPasswordButtons.visibility = View.VISIBLE
-            binding.emailPasswordFields.visibility = View.VISIBLE
-            binding.signedInButtons.visibility = View.GONE
-        }
     }
 
     override fun onDestroyView() {

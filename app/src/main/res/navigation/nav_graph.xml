@@ -3,24 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/loginFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.journaltrailapp.MainActivity"
-        android:label="MainActivity" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.journaltrailapp.ui.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_newAccountFragment"
-            app:destination="@id/newAccountFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newAccountFragment"
-        android:name="com.example.journaltrailapp.ui.fragments.NewAccountFragment"
-        android:label="fragment_new_account"
-        tools:layout="@layout/fragment_new_account" />
+        tools:layout="@layout/fragment_login" />
 </navigation>

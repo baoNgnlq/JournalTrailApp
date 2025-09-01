@@ -5,8 +5,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import com.example.journaltrailapp.ui.fragments.LoginFragment
-import com.example.journaltrailapp.ui.fragments.NewAccountFragment
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
