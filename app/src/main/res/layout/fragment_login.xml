@@ -7,11 +7,42 @@
     android:background="@drawable/login_bkg"
     android:weightSum="1"
     tools:context=".ui.fragments.LoginFragment">
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.3"
-        android:orientation="vertical">
+        android:layout_weight="0.3">
+
+        <LinearLayout
+            android:id="@+id/layout_verified"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Welcome"
+                android:layout_marginTop="150dp"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/email_info_verified"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="nbnbn@gmail.com"
+                android:textSize="20sp"
+                android:background="@drawable/login_back_ground"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_unverified"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <EditText
                 android:id="@+id/email"
                 android:layout_marginTop="120dp"
@@ -21,8 +52,8 @@
                 android:background="@drawable/login_back_ground"
                 android:layout_gravity="center"
                 android:importantForAutofill="no"
-                android:inputType="text" />
-
+                android:inputType="text"
+                tools:ignore="TextFields" />
             <EditText
                 android:id="@+id/password"
                 android:layout_width="300dp"
@@ -32,31 +63,63 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:hint="Password"
-                android:inputType="text"/>
-    </LinearLayout>
+                android:inputType="text"
+                tools:ignore="TextFields" />
+        </LinearLayout>
 
-    <LinearLayout
+
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.7"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#8BC34A"
-            android:text="Login"/>
+        android:layout_weight="0.7">
+        <LinearLayout
+            android:id="@+id/btn_group_verified"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/move_main_btn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#8BC34A"
+                android:text="Show Journal"/>
+            <Button
+                android:id="@+id/logout_btn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#8BC34A"
+                android:text="logout"/>
 
-        <Button
-            android:id="@+id/new_acc_btn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#8BC34A"
-            android:text="Create new Account"/>
+        </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btn_group_unverified"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#8BC34A"
+                android:text="Login"/>
+            <Button
+                android:id="@+id/new_acc_btn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#8BC34A"
+                android:text="Create new Account"/>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

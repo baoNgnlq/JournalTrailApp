@@ -8,12 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.journaltrailapp.R
 import com.example.journaltrailapp.databinding.FragmentLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthMultiFactorException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 
@@ -54,6 +51,10 @@ class LoginFragment : Fragment() {
                 val email = binding.email.text.toString()
                 val password = binding.password.text.toString()
                 signIn(email, password)
+            }
+            logoutBtn.setOnClickListener{signOut()}
+            moveMainBtn.setOnClickListener {
+                // TODO: Add handler move to other Fragment
             }
         }
     }
@@ -159,6 +160,21 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        if (null != user) {
+            with(binding) {
+                layoutVerified.visibility = View.VISIBLE
+                layoutUnverified.visibility = View.GONE
+                btnGroupVerified.visibility = View.VISIBLE
+                btnGroupUnverified.visibility = View.GONE
+            }
+        } else {
+            with(binding) {
+                layoutVerified.visibility = View.GONE
+                layoutUnverified.visibility = View.VISIBLE
+                btnGroupVerified.visibility = View.GONE
+                btnGroupUnverified.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onDestroyView() {
